@@ -1,12 +1,11 @@
-/* --- Variables & Core Setup --- */
+/* --- Variables & MU Theme Setup --- */
 :root {
-    --bg-dark: #050810;
-    --card-bg: rgba(15, 23, 42, 0.8);
-    --neon-blue: #00f2ff;
-    --neon-red: #ff0055;
-    --gold: #ffcc00;
-    --text-silver: #cbd5e1;
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --mu-red: #da291c;
+    --mu-black: #0c0c0c;
+    --mu-dark-grey: #1a1a1a;
+    --mu-gold: #fcc419;
+    --mu-white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.05);
 }
 
 * {
@@ -16,188 +15,129 @@
 }
 
 body {
-    background-color: var(--bg-dark);
-    background-image: 
-        radial-gradient(circle at 10% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(255, 0, 85, 0.05) 0%, transparent 40%);
-    color: #ffffff;
+    background-color: var(--mu-black);
+    background-image: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+    color: var(--mu-white);
     font-family: 'Rajdhani', sans-serif;
-    line-height: 1.5;
-    overflow-x: hidden;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
-/* --- Header Styling --- */
-header {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent);
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 10px;
-}
-
-.brand-name {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 5px;
-    background: linear-gradient(to right, #fff, var(--neon-blue));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-header h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 8px;
-    color: var(--text-silver);
-    margin-top: 10px;
-}
-
-.header-line {
-    width: 60px;
-    height: 4px;
-    background: var(--neon-blue);
-    margin: 15px auto;
-    border-radius: 2px;
-    box-shadow: 0 0 15px var(--neon-blue);
-}
-
-.tagline {
-    font-style: italic;
-    color: #64748b;
-    font-size: 1.1rem;
-}
-
-/* --- Layout Container --- */
+/* --- Layout: Full Width --- */
 .container {
-    max-width: 1000px;
+    width: 95%;
+    max-width: 1500px; /* Full width feel ke liye */
     margin: 0 auto;
     padding: 20px;
 }
 
-/* --- Card & Fixture Styling --- */
-.day-card {
-    background: var(--card-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    margin-bottom: 40px;
-    backdrop-filter: blur(12px);
-    overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+/* --- Header --- */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 2px solid var(--mu-red);
 }
 
-.day-card:hover {
-    transform: translateY(-5px);
+.brand-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--mu-white);
+    text-transform: uppercase;
+}
+
+.header-line {
+    width: 100px;
+    height: 4px;
+    background: var(--mu-red);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.tagline {
+    font-style: italic;
+    color: #a3a3a3;
+    font-size: 1.2rem;
+}
+
+/* --- Cards --- */
+.day-card {
+    background: var(--mu-dark-grey);
+    border: 1px solid #333;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: 0.3s;
 }
 
 .day-header {
-    padding: 20px 30px;
-    font-size: 1.4rem;
+    padding: 15px 25px;
+    font-size: 1.3rem;
     font-weight: 700;
-    background: rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid var(--glass-border);
+    background: #000;
+    border-bottom: 2px solid var(--mu-red);
     display: flex;
     align-items: center;
 }
 
 .match-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
 }
 
+/* --- Match Boxes --- */
 .match {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 15px;
-    border: 1px solid transparent;
+    background: #151515;
+    padding: 15px;
+    border-radius: 8px;
     text-align: center;
-    position: relative;
+    border: 1px solid #333;
+    cursor: grab;
     transition: 0.3s;
 }
 
 .match:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--mu-red);
+    background: #1a1a1a;
 }
 
-/* --- Match Time Styling --- */
+/* --- Group Accents (MU Theme) --- */
+.match.red { border-left: 5px solid var(--mu-red); }
+.match.blue { border-left: 5px solid #444; } /* Blue ki jagah neutral grey */
+.match.gold { border-left: 5px solid var(--mu-gold); }
+
+/* --- Text & Details --- */
 .m-time {
-    display: inline-block;
+    display: block;
     font-family: 'Orbitron', sans-serif;
-    font-size: 0.85rem;
-    background: rgba(255, 255, 255, 0.07);
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    color: var(--mu-gold);
+    margin-bottom: 10px;
 }
 
-.m-time span {
-    margin-right: 5px;
-}
-
-/* --- Team Styling --- */
 .teams {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-.teams span {
-    font-size: 0.9rem;
-    color: #64748b;
-    margin: 0 10px;
-    font-weight: 400;
-}
-
-/* --- Group Specific Accents --- */
-.group-a .match.blue { border-left: 4px solid var(--neon-blue); }
-.group-b .match.red { border-left: 4px solid var(--neon-red); }
-
-.group-a .day-header { color: var(--neon-blue); }
-.group-b .day-header { color: var(--neon-red); }
-
-/* --- Decisive & Finals --- */
-.decisive { border: 1px solid rgba(255, 0, 85, 0.3); }
-
-.gold { color: var(--gold) !important; }
-.match.gold { border-left: 4px solid var(--gold); }
-
+/* --- Finals Styling --- */
 .grand-final {
     grid-column: 1 / -1;
-    background: linear-gradient(45deg, rgba(255, 204, 0, 0.1), transparent);
-    border: 1px solid var(--gold) !important;
-    padding: 40px !important;
+    background: linear-gradient(90deg, #1a1a1a, #000);
+    border: 2px solid var(--mu-gold) !important;
 }
 
 .grand-final .teams {
-    font-size: 2.2rem;
-    text-shadow: 0 0 15px var(--gold);
-}
-
-/* --- Footer --- */
-footer {
-    text-align: center;
-    padding: 40px;
-    color: #475569;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-size: 2rem;
+    color: var(--mu-gold);
+    text-transform: uppercase;
 }
 
 /* --- Responsiveness --- */
-@media (max-width: 600px) {
-    header h1 { font-size: 0.9rem; letter-spacing: 4px; }
+@media (max-width: 768px) {
+    .container { width: 100%; padding: 10px; }
     .brand-name { font-size: 1.8rem; }
-    .match-grid { padding: 15px; }
-    .teams { font-size: 1.2rem; }
 }
