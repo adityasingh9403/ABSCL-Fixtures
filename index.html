@@ -1,136 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABSCL 2026 | Official Fixtures</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <title>KHASLA CUP 2026 | Official Fixtures</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- SortableJS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <style>
+        /* Essential Drag-and-Drop Styling */
+        .match {
+            cursor: grab;
+            transition: transform 0.2s;
+            user-select: none;
+        }
+
+        .match:active {
+            cursor: grabbing;
+            opacity: 0.8;
+        }
+
+        .ghost {
+            opacity: 0.4;
+            background: #ddd;
+            border: 2px dashed #666;
+        }
+
+        .export-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            background: #ff9900;
+            color: #000;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 1000;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Note: Ensure these styles exist in your style.css or add to <style> */
+    </style>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <button class="export-btn" onclick="exportHTML()">Save Updated Fixtures</button>
 
     <header>
         <div class="logo-container">
             <span class="cricket-icon">🏏</span>
-            <span class="brand-name">ABSCL</span>
+            <span class="brand-name">KHALSA CUP</span>
         </div>
         <h1>OFFICIAL FIXTURES</h1>
         <div class="header-line"></div>
-        <p class="tagline">“12 Teams. 1 Champion. ABSCL Glory Awaits!”</p>
+        <p class="tagline">“24 Teams. 1 Champion.”</p>
     </header>
 
-    <main class="container">
-        
+    <main class="container" id="main-fixtures">
+
+        <!-- ================= DAY 1 (A & B) ================= -->
         <section class="day-card group-a">
-            <div class="day-header">📅 DAY 1 – Group A Clash 🔥</div>
+            <div class="day-header">📅 DAY 1 – 02 September 2026 (Groups A & B)</div>
             <div class="match-grid">
-                <div class="match blue"><span class="m-time"></span><div class="teams">A1 <span>🆚</span> A2</div></div>
-                <div class="match blue"><span class="m-time"></span><div class="teams">A3 <span>🆚</span> A4</div></div>
-                <div class="match blue"><span class="m-time"></span><div class="teams">A1 <span>🆚</span> A3</div></div>
-                <div class="match blue"><span class="m-time"></span><div class="teams">A2 <span>🆚</span> A4</div></div>
+                <!-- Group A -->
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">A1 🆚 A2</div>
+                </div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">A3 🆚 A4</div>
+                </div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">Loser M1 🆚 Loser M2</div>
+                </div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">Winner M1 🆚 Winner M2</div>
+                </div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">Winner M3 🆚 Loser M4</div>
+                </div>
+                <!-- Group B -->
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">B1 🆚 B2</div>
+                </div>
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">B3 🆚 B4</div>
+                </div>
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">Loser M1 🆚 Loser M2</div>
+                </div>
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">Winner M1 🆚 Winner M2</div>
+                </div>
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">Winner M3 🆚 Loser M4</div>
+                </div>
             </div>
         </section>
 
+        <!-- ================= DAY 2 (C & D) ================= -->
         <section class="day-card group-b">
-            <div class="day-header">📅 DAY 2 – Group B Clash 🔥</div>
+            <div class="day-header">📅 DAY 2 – 03 September 2026 (Groups C & D)</div>
             <div class="match-grid">
-                <div class="match red"><span class="m-time"></span><div class="teams">B1 <span>🆚</span> B2</div></div>
-                <div class="match red"><span class="m-time"></span><div class="teams">B3 <span>🆚</span> B4</div></div>
-                <div class="match red"><span class="m-time"></span><div class="teams">B1 <span>🆚</span> B3</div></div>
-                <div class="match red"><span class="m-time"></span><div class="teams">B2 <span>🆚</span> B4</div></div>
+                <!-- Group C -->
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">C1 🆚 C2</div>
+                </div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">C3 🆚 C4</div>
+                </div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">Loser M1 🆚 Loser M2</div>
+                </div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">Winner M1 🆚 Winner M2</div>
+                </div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">Winner M3 🆚 Loser M4</div>
+                </div>
+                <!-- Group D -->
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">D1 🆚 D2</div>
+                </div>
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">D3 🆚 D4</div>
+                </div>
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">Loser M1 🆚 Loser M2</div>
+                </div>
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">Winner M1 🆚 Winner M2</div>
+                </div>
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">Winner M3 🆚 Loser M4</div>
+                </div>
             </div>
         </section>
 
+        <!-- ================= DAY 3 (E & F) ================= -->
         <section class="day-card group-a">
-            <div class="day-header">📅 DAY 3 – Group A Double Action ⚡</div>
+            <div class="day-header">📅 DAY 3 – 04 September 2026 (Groups E & F)</div>
             <div class="match-grid">
-                <div class="match blue"><span class="m-time"></span><div class="teams">A5 <span>🆚</span> A6</div></div>
-                <div class="match blue"><span class="m-time"></span><div class="teams">A1 <span>🆚</span> A4</div></div>
-                <div class="match blue"><span class="m-time"></span><div class="teams">A1 <span>🆚</span> A5</div></div>
-                <div class="match blue"><span class="m-time"></span><div class="teams">A4 <span>🆚</span> A6</div></div>
-                <div class="match blue"><span class="m-time"></span><div class="teams">A1 <span>🆚</span> A6</div></div>
+                <!-- Group E -->
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">E1 🆚 E2</div>
+                </div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">E3 🆚 E4</div>
+                </div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">Loser M1 🆚 Loser M2</div>
+                </div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">Winner M1 🆚 Winner M2</div>
+                </div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">Winner M3 🆚 Loser M4</div>
+                </div>
+                <!-- Group F -->
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">F1 🆚 F2</div>
+                </div>
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">F3 🆚 F4</div>
+                </div>
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">Loser M1 🆚 Loser M2</div>
+                </div>
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">Winner M1 🆚 Winner M2</div>
+                </div>
+                <div class="match red"><span class="m-time"></span>
+                    <div class="teams">Winner M3 🆚 Loser M4</div>
+                </div>
             </div>
         </section>
 
-        <section class="day-card group-b">
-            <div class="day-header">📅 DAY 4 – Group B Double Action ⚡</div>
-            <div class="match-grid">
-                <div class="match red"><span class="m-time"></span><div class="teams">B5 <span>🆚</span> B6</div></div>
-                <div class="match red"><span class="m-time"></span><div class="teams">B1 <span>🆚</span> B4</div></div>
-                <div class="match red"><span class="m-time"></span><div class="teams">B1 <span>🆚</span> B5</div></div>
-                <div class="match red"><span class="m-time"></span><div class="teams">B4 <span>🆚</span> B6</div></div>
-                <div class="match red"><span class="m-time"></span><div class="teams">B1 <span>🆚</span> B6</div></div>
-            </div>
-        </section>
-
-        <section class="day-card group-a">
-            <div class="day-header">📅 DAY 5 – Group A Battles 💥</div>
-            <div class="match-grid">
-                <div class="match blue"><span class="m-time"></span><div class="teams">A2 <span>🆚</span> A5</div></div>
-                <div class="match blue"><span class="m-time"></span><div class="teams">A3 <span>🆚</span> A6</div></div>
-                <div class="match blue"><span class="m-time"></span><div class="teams">A2 <span>🆚</span> A6</div></div>
-                <div class="match blue"><span class="m-time"></span><div class="teams">A3 <span>🆚</span> A5</div></div>
-            </div>
-        </section>
-
-        <section class="day-card group-b">
-            <div class="day-header">📅 DAY 6 – Group B Battles 💥</div>
-            <div class="match-grid">
-                <div class="match red"><span class="m-time"></span><div class="teams">B2 <span>🆚</span> B5</div></div>
-                <div class="match red"><span class="m-time"></span><div class="teams">B3 <span>🆚</span> B6</div></div>
-                <div class="match red"><span class="m-time"></span><div class="teams">B2 <span>🆚</span> B6</div></div>
-                <div class="match red"><span class="m-time"></span><div class="teams">B3 <span>🆚</span> B5</div></div>
-            </div>
-        </section>
-
+        <!-- ================= DAY 4 ================= -->
         <section class="day-card decisive">
-            <div class="day-header">📅 DAY 7 – निर्णायक मुकाबले ⚔️</div>
+            <div class="day-header">📅 DAY 4 – 05 September 2026 (League Reserve / Buffer Day)</div>
             <div class="match-grid">
-                <div class="match blue"><span class="m-time"></span><div class="teams">A2 <span>🆚</span> A3</div></div>
-                <div class="match blue"><span class="m-time"></span><div class="teams">A4 <span>🆚</span> A5</div></div>
-                <div class="match red"><span class="m-time"></span><div class="teams">B2 <span>🆚</span> B3</div></div>
-                <div class="match red"><span class="m-time"></span><div class="teams">B4 <span>🆚</span> B5</div></div>
+                <div class="match blue"><span class="m-time"></span>
+                    <div class="teams">Reserved for Delayed League Matches</div>
+                </div>
             </div>
         </section>
 
+        <!-- ================= DAY 5 ================= -->
         <section class="day-card finals">
-            <div class="day-header gold">🏆 DAY 8 – FINALS DAY</div>
+            <div class="day-header">📅 DAY 5 – 06 September 2026 (Pre-Quarter Finals - 8 Overs)</div>
             <div class="match-grid">
-                <div class="match gold"><span class="m-time"></span><div class="teams">SF 1: A1 🆚 B2</div></div>
-                <div class="match gold"><span class="m-time"></span><div class="teams">SF 2: B1 🆚 A2</div></div>
-                <div class="match grand-final"><span class="m-time"></span><div class="teams">👑 GRAND FINALE</div></div>
+                <div class="match gold"><span class="m-time"></span>
+                    <div class="teams">PQF 1 : A1 🆚 F2</div>
+                </div>
+                <div class="match gold"><span class="m-time"></span>
+                    <div class="teams">PQF 2 : B1 🆚 E2</div>
+                </div>
+                <div class="match gold"><span class="m-time"></span>
+                    <div class="teams">PQF 3 : C1 🆚 D2</div>
+                </div>
+                <div class="match gold"><span class="m-time"></span>
+                    <div class="teams">PQF 4 : D1 🆚 C2</div>
+                </div>
+                <div class="match gold"><span class="m-time"></span>
+                    <div class="teams">PQF 5 : E1 🆚 B2</div>
+                </div>
+                <div class="match gold"><span class="m-time"></span>
+                    <div class="teams">PQF 6 : F1 🆚 A2</div>
+                </div>
             </div>
         </section>
 
+        <!-- ================= DAY 6 ================= -->
+        <section class="day-card finals">
+            <div class="day-header gold">🏆 DAY 6 – 07 September 2026 (Finals Day)</div>
+            <div class="match-grid">
+                <div class="match gold"><span class="m-time"></span>
+                    <div class="teams">Quarter Final 1</div>
+                </div>
+                <div class="match gold"><span class="m-time"></span>
+                    <div class="teams">Quarter Final 2</div>
+                </div>
+                <div class="match gold"><span class="m-time"></span>
+                    <div class="teams">Quarter Final 3</div>
+                </div>
+                <div class="match gold"><span class="m-time"></span>
+                    <div class="teams">Semi Final</div>
+                </div>
+                <div class="match grand-final"><span class="m-time"></span>
+                    <div class="teams">👑 GRAND FINAL (10 Overs)</div>
+                </div>
+            </div>
+        </section>
     </main>
-
     <footer>
         <p>© 2026 ABSCL - All Rights Reserved | Designed for Glory</p>
     </footer>
 
     <script>
-        // Automatic Time Calculation Logic
+        // 1. Initialize Sortable
+        document.querySelectorAll('.match-grid').forEach(grid => {
+            new Sortable(grid, {
+                group: 'shared',
+                animation: 150,
+                ghostClass: 'ghost'
+            });
+        });
+
+        // 2. Export Function
+        function exportHTML() {
+            const container = document.getElementById('main-fixtures');
+            const blob = new Blob([container.innerHTML], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'updated_fixtures.html';
+            a.click();
+            alert("Fixtures saved!");
+        }
+
+        // 3. Time Logic (Starts at 2:00 PM)
         document.querySelectorAll('.day-card').forEach(day => {
-            // Set base start time to 5:30 PM for each day
             let startTime = new Date();
-            startTime.setHours(17, 30, 0); 
+            startTime.setHours(14, 0, 0);
 
             const matches = day.querySelectorAll('.m-time');
             matches.forEach((matchSpan) => {
-                // Formatting time to "05:30 PM" style
-                let timeString = startTime.toLocaleTimeString([], { 
-                    hour: '2-digit', 
+                let timeString = startTime.toLocaleTimeString([], {
+                    hour: '2-digit',
                     minute: '2-digit',
-                    hour12: true 
+                    hour12: true
                 });
-                
                 matchSpan.innerHTML = `<span>🕒</span> ${timeString}`;
-                
-                // Add 90 minutes (1.5 hours) for the next match in that day
                 startTime.setMinutes(startTime.getMinutes() + 90);
             });
         });
     </script>
-
 </body>
+
 </html>
